@@ -6,11 +6,12 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:16:05 by ichouare          #+#    #+#             */
-/*   Updated: 2022/12/27 17:18:29 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:26:19 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
 static int	num_of_words(char const *s, char c)
 {
 	int	i;

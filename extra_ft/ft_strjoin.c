@@ -6,12 +6,11 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 11:28:17 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/07 11:36:13 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:27:34 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 static char	*strimplement(char *str, char const *s1, char const *s2)
 {
@@ -50,4 +49,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	strimplement(str, s1, s2);
 	return (str);
 }
-

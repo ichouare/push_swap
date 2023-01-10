@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 14:33:41 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/08 15:35:44 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:27:11 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 int	ft_strcmp( char *p1, char *p2)
 {	
-	int i;
+	int	i;
 
 	i = 0;
 	if (!p1 && !p2)
 		return (0);
-
 	while (p1[i] && p2[i])
 	{
 		if (p1[i] > p2[i])
 			return (1);
-		if (p1[i]  < p2[i])
+		if (p1[i] < p2[i])
 			return (1);
 		i++;
 	}

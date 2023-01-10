@@ -6,12 +6,11 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 11:34:10 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/09 18:44:00 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:24:40 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 static char	*heandler_next_line(char **svr, char *line)
 {
@@ -42,7 +41,7 @@ static char	*heandler_next_line(char **svr, char *line)
 	return (line);
 }
 
-static char	*handler_line( char **svr, char **buffer, int fd , int BUFFER_SIZE)
+static char	*handler_line( char **svr, char **buffer, int fd, int BUFFER_SIZE)
 {
 	char			*tmp;
 	ssize_t			sz;
@@ -71,19 +70,20 @@ char	*get_next_line(int fd)
 	char		*buffer;
 	static char	*svr;
 	char		*line;
-    int         BUFFER_SIZE = 1;
+	int			buffer_size;
 
 	line = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	buffer_size = 1;
+	if (fd < 0 || buffer_size <= 0)
 		return (NULL);
-	buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	buffer = ft_calloc(sizeof(char), buffer_size + 1);
 	if (!buffer)
 		return (NULL);
 	if (!svr)
 		svr = ft_substr(buffer, 0, found_nl(buffer, '\0'));
-	svr = handler_line(&svr, &buffer, fd, BUFFER_SIZE);
+	svr = handler_line(&svr, &buffer, fd, buffer_size);
 	if (!svr)
 		return (NULL);
 	free(buffer);
-    return (heandler_next_line(&svr, line));
+	return (heandler_next_line(&svr, line));
 }

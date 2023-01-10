@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 11:41:40 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/08 12:15:36 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:24:58 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,45 +23,6 @@ size_t	found_nl(const char *str, int c)
 		i++;
 	return (i);
 }
-
-//join function 
-// static char	*strimplement(char *str, char const *s1, char const *s2)
-// {
-// 	unsigned int	i;
-// 	unsigned int	j;
-
-// 	i = 0;
-// 	j = 0;
-// 	while (s1[j])
-// 	{
-// 		str[i] = s1[j];
-// 		j++;
-// 		i++;
-// 	}
-// 	j = 0;
-// 	while (s2[j])
-// 	{
-// 		str[i] = s2[j];
-// 		j++;
-// 		i++;
-// 	}
-// 	str[i] = '\0';
-// 	return (str);
-// }
-
-// char	*ft_strjoin(char *s1, char const *s2)
-// {
-// 	char			*str;
-
-// 	if (!s1 && !s2)
-// 		return (NULL);
-// 	str = NULL;
-// 	str = (char *)malloc(sizeof(char) * (found_nl(s1, '\0')
-// 				+ found_nl(s2, '\0') + 1));
-// 	if (!str)
-// 		return (NULL);
-// 	return (strimplement(str, s1, s2));
-// }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

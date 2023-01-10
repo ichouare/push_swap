@@ -6,25 +6,25 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:42:13 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/08 17:29:43 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:36:09 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int rb(int *b , int topb)
+int	rb(int *b, int topb)
 {
-    int i;
-    int tmp;
+	int	i;
+	int	tmp;
 
-    i = topb;
-    tmp = b[i];
-    while(i > 0)
-    {
-        b[i] = b[i - 1];
-        i--;
-    }
-    b[i] = tmp;
-   write(1, "rb\n" , 3);
-    return(0);
+	i = topb;
+	tmp = b[i];
+	while (i > 0)
+	{
+	b[i] = b[i - 1];
+	i--;
+	}
+	b[i] = tmp;
+	write (1, "rb\n", 3);
+	return (0);
 }

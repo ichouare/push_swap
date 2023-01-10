@@ -6,23 +6,24 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:29:28 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/08 17:32:01 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:35:11 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int ra(int *a , int topa)
+int	ra(int *a, int topa)
 {
-    int tmp;
-    tmp = 0; 
-    tmp = a[topa];
-    while(topa > 0)
-    {
-       a[topa] = a[topa - 1];
-       topa--;
-    }
-    a[0] =tmp; 
-   write(1, "ra\n" , 3);
-    return(0);
+	int	tmp;
+
+	tmp = 0;
+	tmp = a[topa];
+	while (topa > 0)
+	{
+		a[topa] = a[topa - 1];
+		topa--;
+	}
+	a[0] = tmp;
+	write (1, "ra\n", 3);
+	return (0);
 }
