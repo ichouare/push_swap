@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:55:07 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/10 17:59:14 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:26:55 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	ft_pop(char **str, int **stack_a, int *top, int i);
 void	ft_free(int *stack_a, int *stack_b);
 void	ft_error(char *str, int length);
 void	is_sorted(int *stack_a, int top);
-int		check_arr(int *stack_a, int top);
+int		check_arr(t_list *tvars);
 char	**check_parms(int argc, char **agrv);
+int		check_sort(int *stack_a, int top);
 #endif

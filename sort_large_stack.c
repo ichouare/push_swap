@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 18:43:54 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/10 14:37:04 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:12:17 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ void	push_in_b(t_list *tvars, int j, int sz, int *chunks)
 	{
 		first_spot = first_scan(tvars->a, chunks, j, tvars->top);
 		hold_first = tvars->a[first_spot];
-		if (first_spot <= (sz / 2))
+		if (first_spot <= (tvars->top / 2))
 		{
 			while (tvars->a[tvars->top] != hold_first)
 				rra(tvars->a, tvars->top);
 		}
-		else if (first_spot > (sz / 2))
+		else if (first_spot > (tvars->top / 2))
 		{
 			while (tvars->a[tvars->top] != hold_first)
 				ra(tvars->a, tvars->top);

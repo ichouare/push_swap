@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:43:33 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/10 17:56:39 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:33:58 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ int	*sort_temp(int *tab, int top)
 
 	temp_tab = (int *) malloc(top * sizeof(int));
 	i = 0;
-	while (i <= top)
+	while (i++ <= top)
 	{
 		temp_tab[i] = tab[i];
-		i++;
 	}
 	i = 1;
 	while (i <= top)
@@ -42,20 +41,23 @@ int	*sort_temp(int *tab, int top)
 	return (temp_tab);
 }
 
-int	check_arr(int *stack_a, int top)
+int	check_arr(t_list *tvars)
 {
 	int	i;
 	int	j;
 
-	i = top;
+	i = tvars->top;
 	while (i >= 0)
 	{
 		j = i - 1;
 		while (j >= 0)
 		{
-			if (stack_a[i] == stack_a[j] || stack_a[i] > 2147483647
-				|| stack_a[i] < -2147483647)
-				return (0);
+			if (tvars->a[i] == tvars->a[j] || tvars->a[i] >= 2147483647
+				|| tvars->a[i] < -2147483647)
+			{
+				ft_free(tvars->a, tvars->b);
+				ft_error("arguments are bigger than integer/duplicates \n", 47);
+			}
 			j--;
 		}
 		i--;

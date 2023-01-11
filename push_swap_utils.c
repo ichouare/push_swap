@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:02:09 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/10 17:37:39 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:27:44 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_free(int *stack_a, int *stack_b)
 void	ft_error(char *str, int length)
 {
 	write (1, str, length);
-	exit (0);
+	exit (1);
 }
 
 void	is_sorted(int *stack_a, int top)
