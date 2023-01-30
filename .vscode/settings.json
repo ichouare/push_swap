@@ -1,9 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "disabled",
-    "files.associations": {
-        "*.excalidraw": "json",
-        "*.excalidrawlib": "json",
-        "stdio.h": "c",
-        "sstream": "c"
-    }
-}
