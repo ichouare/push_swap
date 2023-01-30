@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 14:42:13 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/10 15:36:09 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/28 14:37:54 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	rb(int *b, int topb)
 	tmp = b[i];
 	while (i > 0)
 	{
-	b[i] = b[i - 1];
-	i--;
+		b[i] = b[i - 1];
+		i--;
 	}
 	b[i] = tmp;
 	write (1, "rb\n", 3);

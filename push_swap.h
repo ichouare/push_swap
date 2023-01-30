@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:55:07 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/11 17:26:55 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/29 11:47:55 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,25 @@
 
 typedef struct list
 {
-	int	*a;
-	int	*b;
-	int	top;
-	int	topb;
+	int		*a;
+	int		*b;
+	int		top;
+	int		topb;
+	int		half_chunks;
+	int		biggest;
+	int		max;
+	int		second_max;
+	int		tmp;
+	char	**str;
 }	t_list;
+
+typedef struct pos
+{
+	int	first_spot;
+	int	second_spot;
+	int	hold_first;
+	int	biggest;
+}	t_pos;
 
 typedef struct BonusList
 {
@@ -42,7 +56,7 @@ typedef struct BonusList
 void	*ft_calloc(size_t number, size_t size);
 void	ft_bzero(void *s, size_t n);
 char	**ft_split(char const *s, char c);
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 void	sort_small_stack(int *a, int top);
 int		sa(int *a, int top);
 int		sb(int *b, int top);
@@ -62,14 +76,29 @@ char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	*get_next_line(int fd);
 size_t	found_nl(const char *str, int c);
+void	check_enter(char *str2);
 char	*ft_strchr(char *s, int c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-int		ft_strcmp(char *p1, char *p2);
-void	ft_pop(char **str, int **stack_a, int *top, int i);
+int		first_scan(int *stack_a, int *Chunks, int j, int top);
+int		second_scan(int *stack_a, int *Chunks, int j, int top);
+int		ft_strcmp(char *p1, char *p2, int len);
+int		best_pos(int pos_max, int pos_smax, int topb);
+int		ft_pop(char **str, int **stack_a, int *top, int i);
 void	ft_free(int *stack_a, int *stack_b);
+void	handler_top(t_list *tvars, t_pos *find_ps);
+void	push_in_b(t_list *tvars, int j, int *chunks);
+void	handler_bottom(t_list *tvars, t_pos *find_ps);
+int		check_num(int *stack_a, int *Chunks, int top, int j);
 void	ft_error(char *str, int length);
 void	is_sorted(int *stack_a, int top);
 int		check_arr(t_list *tvars);
+int		check_arrb(t_Bonus *tvars);
+int		find_biggest(int topb, int pos_max, int pos_smax);
 char	**check_parms(int argc, char **agrv);
 int		check_sort(int *stack_a, int top);
+int		find_max(int *stack_b, int topb);
+int		find_second_max( int *stack_b, int topb, int max, int pos_one);
+void	push_biggest(t_list *tvars, int max, int biggest);
+void	push_max(t_list *tvars, int max, int biggest);
+int		push_in_a(t_list *tvars);
 #endif

@@ -6,23 +6,27 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:02:09 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/11 17:27:44 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/29 12:18:01 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	ft_pop(char **str, int **stack_a, int *top, int i)
+int	ft_pop(char **str, int **stack_a, int *top, int i)
 {
 	int	j;
 
 	j = 0;
+	*top = -1;
 	while (i >= 0)
 	{
 		*top = *top + 1;
+		if (ft_atoi(str[i]) > 2147483647 || ft_atoi(str[i]) < -2147483648)
+			return (1);
 		(*stack_a)[*top] = ft_atoi(str[i]);
 		i--;
 	}
+	return (0);
 }
 
 void	ft_free(int *stack_a, int *stack_b)
@@ -33,8 +37,8 @@ void	ft_free(int *stack_a, int *stack_b)
 
 void	ft_error(char *str, int length)
 {
-	write (1, str, length);
-	exit (1);
+	write (1, str, length + 1);
+	exit (0);
 }
 
 void	is_sorted(int *stack_a, int top)
@@ -57,13 +61,20 @@ void	is_sorted(int *stack_a, int top)
 int	check_sort(int *stack_a, int top)
 {
 	int	i;
+	int	res;
 
 	i = top;
+	res = 0;
 	while (i > 0)
 	{
 		if (stack_a[i] > stack_a[i - 1])
-			return (1);
+			res = 1;
 		i--;
 	}
+	res = 0;
+	if (res == 1)
+		write(1, "KO\n", 4);
+	else
+		write(1, "OK\n", 4);
 	return (0);
 }

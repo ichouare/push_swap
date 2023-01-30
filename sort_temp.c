@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:43:33 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/11 17:33:58 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/28 13:42:43 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	*sort_temp(int *tab, int top)
 {
 	int	i;
-	int	max;
+	int	min;
 	int	j;
 	int	*temp_tab;
 
@@ -28,14 +28,14 @@ int	*sort_temp(int *tab, int top)
 	i = 1;
 	while (i <= top)
 	{
-		max = temp_tab[i];
+		min = temp_tab[i];
 		j = i - 1;
-		while (j >= 0 && temp_tab[j] > max)
+		while (j >= 0 && temp_tab[j] > min)
 		{
 			temp_tab[j + 1] = temp_tab[j];
 			j -= 1;
 		}
-		temp_tab[j + 1] = max;
+		temp_tab[j + 1] = min;
 		i++;
 	}
 	return (temp_tab);
@@ -52,11 +52,10 @@ int	check_arr(t_list *tvars)
 		j = i - 1;
 		while (j >= 0)
 		{
-			if (tvars->a[i] == tvars->a[j] || tvars->a[i] >= 2147483647
-				|| tvars->a[i] < -2147483647)
+			if (tvars->a[i] == tvars->a[j])
 			{
 				ft_free(tvars->a, tvars->b);
-				ft_error("arguments are bigger than integer/duplicates \n", 47);
+				ft_error("arguments are bigger than integer/duplicates\n", 45);
 			}
 			j--;
 		}
@@ -73,7 +72,7 @@ char	**check_parms(int argc, char **agrv)
 	int		i;
 
 	if (argc == 1)
-		ft_error("no parameters are specified\n", 29);
+		ft_error("no parameters are specified\n", 28);
 	i = 1;
 	args = agrv[i];
 	i = 2;
@@ -89,5 +88,6 @@ char	**check_parms(int argc, char **agrv)
 		i += 1;
 	}
 	str = ft_split(args, ' ');
+	free(args);
 	return (str);
 }

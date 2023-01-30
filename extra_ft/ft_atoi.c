@@ -6,31 +6,19 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:09:52 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/10 15:20:32 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/01/28 13:14:42 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	handlermax(char *str, int i, int sign, int res)
+long	handlermax(char *str, int i, int sign, long res)
 {
 	int	j;
 
 	j = 0;
 	while (*(str + i) == 48)
 		i++;
-	while (*(str + i) >= 48 && *(str + i) <= 57)
-	{
-		i++;
-		j++;
-	}
-	if (j >= 19)
-	{
-		if (sign < 0)
-			return (0);
-		return (-1);
-	}
-	i -= j;
 	while ((*(str + i) >= '0' && *(str + i) <= '9')
 		&& (*(str + i) != '\0' && *(str + i) != 32 && *(str + i) != '	'))
 	{
@@ -38,14 +26,15 @@ int	handlermax(char *str, int i, int sign, int res)
 		res += *(str + i) - '0';
 		i++;
 	}
-	return (res * sign);
+	res = res * sign;
+	return (res);
 }
 
-int	ft_atoi(const char *nptr)
+long	ft_atoi(const char *nptr)
 {
 	int		i;
 	int		sign;
-	int		res;
+	long	res;
 	char	*ptr;
 
 	i = 0;
