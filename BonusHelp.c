@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 13:32:54 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/28 13:10:57 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:04:13 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,58 @@ void	check_enter(char *str2)
 		write(1, "Error", 6);
 		exit(1);
 	}
+}
+
+void	check_str_checker(char **str)
+{
+	size_t i;
+	int j;
+	
+	i = 0;
+	j = 0;
+	if (str[1] == NULL)
+	{
+		while(i < ft_strlen(str[0]))
+		{
+			if (str[0][i] < '0' || str[0][i] > '9')
+				j = 1;
+			i++;
+		}
+		if(j == 1)
+		{
+			ft_error("Error", 5);
+			exit(0);
+		}
+		write(1, "OK\n", 2);
+		exit(0);
+	}
+}
+
+char	**check_parms_checker(int argc, char **agrv)
+{
+	char	*args;
+	char	**str;
+	char	*tmp;
+	int		i;
+
+	if (argc == 1)
+		ft_error("no parameters are specified\n", 28);
+	i = 1;
+	args = agrv[i];
+	args = ft_strjoin(args, " ");
+	i = 2;
+	while (agrv[i])
+	{
+		tmp = args;
+		args = ft_strjoin(args, agrv[i]);
+		free (tmp);
+		tmp = args;
+		args = ft_strjoin(args, " ");
+		free (tmp);
+		i += 1;
+	}
+	str = ft_split(args, ' ');
+	check_str_checker(str);
+	free(args);
+	return (str);
 }

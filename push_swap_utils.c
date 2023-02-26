@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:02:09 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/29 12:18:01 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:10:23 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,14 @@ int	check_sort(int *stack_a, int top)
 	while (i > 0)
 	{
 		if (stack_a[i] > stack_a[i - 1])
+		{
 			res = 1;
+			break;
+		}
+		else
+			res = 0;
 		i--;
 	}
-	res = 0;
 	if (res == 1)
 		write(1, "KO\n", 4);
 	else

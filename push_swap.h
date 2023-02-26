@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 10:55:07 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/29 11:47:55 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:04:22 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		first_scan(int *stack_a, int *Chunks, int j, int top);
 int		second_scan(int *stack_a, int *Chunks, int j, int top);
 int		ft_strcmp(char *p1, char *p2, int len);
-int		best_pos(int pos_max, int pos_smax, int topb);
+void	free_str(t_list *tvars);
 int		ft_pop(char **str, int **stack_a, int *top, int i);
 void	ft_free(int *stack_a, int *stack_b);
 void	handler_top(t_list *tvars, t_pos *find_ps);
@@ -90,6 +90,8 @@ void	push_in_b(t_list *tvars, int j, int *chunks);
 void	handler_bottom(t_list *tvars, t_pos *find_ps);
 int		check_num(int *stack_a, int *Chunks, int top, int j);
 void	ft_error(char *str, int length);
+void	check_str_checker(char **str);
+char	**check_parms_checker(int argc, char **agrv);
 void	is_sorted(int *stack_a, int top);
 int		check_arr(t_list *tvars);
 int		check_arrb(t_Bonus *tvars);

@@ -6,11 +6,25 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 18:33:09 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/29 11:48:36 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:37:53 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
+void	free_str(t_list *tvars)
+{
+	int	i;
+
+	i = 0;
+	while (i <= tvars->top)
+	{
+		free(tvars->str[i]);
+		i++;
+	}
+	free (tvars->str);
+	tvars->str = NULL;
+}
 
 int	check_num(int *stack_a, int *Chunks, int top, int j)
 {

@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 17:39:50 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/29 12:17:48 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/02/26 15:04:32 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,26 @@ void	check_stack(char **str, int *i)
 	}
 }
 
+void	free_string(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free (str[i]);
+		i++;
+	}
+	free (str);
+}
+
 int	main(int argc, char **agrv)
 {
 	int		i;
 	t_Bonus	tvars;
 
 	tvars.topb = -1;
-	tvars.str = check_parms(argc, agrv);
+	tvars.str = check_parms_checker(argc, agrv);
 	check_stack(tvars.str, &i);
 	tvars.a = (int *)malloc(i * sizeof(int));
 	tvars.b = (int *)malloc(i * sizeof(int));
@@ -115,9 +128,9 @@ int	main(int argc, char **agrv)
 	enter_function(&tvars);
 	i = 0;
 	make_func(&tvars, &i);
+	free_string(tvars.fcts);
 	check_sort(tvars.a, tvars.top);
-	i = -1;
-	while (++i < tvars.top)
-		free(tvars.str[i]);
+	free_string(tvars.str);
+	ft_free(tvars.a, tvars.b);
 	return (0);
 }

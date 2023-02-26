@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 17:14:26 by ichouare          #+#    #+#             */
-/*   Updated: 2023/01/29 12:16:03 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:00:33 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ int	main(int argc, char **agrv)
 		ft_free(tvars.a, tvars.b);
 		ft_error("arguments are bigger than integer/duplicates\n", 45);
 	}
-	i = -1;
-	while (++i < tvars.top)
-		free(tvars.str[i]);
+	free_str(&tvars);
 	free(tvars.str);
 	is_sorted(tvars.a, tvars.top);
 	check_arr(&tvars);
