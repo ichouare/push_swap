@@ -6,7 +6,7 @@
 /*   By: ichouare <ichouare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 12:02:09 by ichouare          #+#    #+#             */
-/*   Updated: 2023/02/26 15:10:23 by ichouare         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:06:48 by ichouare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	ft_free(int *stack_a, int *stack_b)
 
 void	ft_error(char *str, int length)
 {
+	if (str == NULL)
+		exit (0);
 	write (1, str, length + 1);
 	exit (0);
 }
@@ -70,7 +72,7 @@ int	check_sort(int *stack_a, int top)
 		if (stack_a[i] > stack_a[i - 1])
 		{
 			res = 1;
-			break;
+			break ;
 		}
 		else
 			res = 0;
